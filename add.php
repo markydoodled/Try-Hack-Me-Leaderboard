@@ -125,10 +125,11 @@
         
         $sql = "INSERT INTO scores (uid, name, streak, evidence)
         VALUES ('$new_id', '$name', '$streak', '$evidence')";
+
+        echo  "Inserted";
         
         if ($conn->query($sql) === TRUE) {
             echo "New Record Created Successfully";
-            //header("Location: index.php");
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
