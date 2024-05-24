@@ -80,7 +80,7 @@
 <body>
     <h1>Try Hack Me Leaderboard</h1>
     <div class="center-container">
-        <p><a href="add.html" class="button"><i class="fas fa-plus"></i> Add Streak</a></p>
+        <p><a href="add.php" class="button"><i class="fas fa-plus"></i> Add Streak</a></p>
     </div>
     <div class="center-container">
         <p><a href="export.php" class="button"><i class="fas fa-file-pdf"></i> Export As PDF</a></p>
