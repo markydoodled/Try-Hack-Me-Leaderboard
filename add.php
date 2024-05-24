@@ -128,7 +128,7 @@
         
         if ($conn->query($sql) === TRUE) {
             echo "New Record Created Successfully";
-            header("Location: index.php");
+            //header("Location: index.php");
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
