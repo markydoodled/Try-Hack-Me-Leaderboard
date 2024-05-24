@@ -102,5 +102,34 @@
         <button type="submit" class="button"><i class="fas fa-paper-plane"></i> Submit</button>
         <a href="index.html" class="back-button"><i class="fas fa-home"></i> Back to Home</a>
     </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = $_POST["name"];
+        $streak = $_POST["streak"];
+        $evidence = $_POST["evidence"];
+        
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "leaderboard";
+        
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        
+        if ($conn->connect_error) {
+            die("Connection Failed: " . $conn->connect_error);
+        }
+        
+        $sql = "INSERT INTO leaderboard (name, streak, evidence)
+        VALUES ('$name', '$streak', '$evidence')";
+        
+        if ($conn->query($sql) === TRUE) {
+            echo "New Record Created Successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        
+        $conn->close();
+    }
+    ?>
 </body>
 </html>
