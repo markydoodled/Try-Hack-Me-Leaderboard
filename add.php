@@ -100,7 +100,7 @@
         <label for="evidence"><i class="fas fa-file-image"></i> Evidence</label>
         <input type="file" id="evidence" name="evidence" accept="image/*" required>
         <button type="submit" class="button"><i class="fas fa-paper-plane"></i> Submit</button>
-        <a href="index.html" class="back-button"><i class="fas fa-home"></i> Back to Home</a>
+        <a href="index.php" class="back-button"><i class="fas fa-home"></i> Back to Home</a>
     </form>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
