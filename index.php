@@ -91,16 +91,6 @@
             <th><i class="fas fa-user"></i> Name</th>
             <th><i class="fas fa-fire"></i> Streak</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>John Doe</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Jane Doe</td>
-            <td>9</td>
-        </tr>
         <?php
             $conn = mysqli_connect("localhost", "root", "", "leaderboard");
             if ($conn->connect_error) {
