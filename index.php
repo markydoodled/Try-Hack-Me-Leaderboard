@@ -96,7 +96,7 @@
             if ($conn->connect_error) {
                 die("Connection Failed: " . $conn->connect_error);
             }
-            $sql = "SELECT * FROM scores ORDER BY score DESC";
+            $sql = "SELECT * FROM scores WHERE created_at >= DATE_SUB(NOW(), INTERVAL 1 WEEK) ORDER BY score DESC";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 $rank = 1;
