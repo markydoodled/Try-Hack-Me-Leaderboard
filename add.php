@@ -107,6 +107,7 @@
         $name = $_POST["name"];
         $streak = $_POST["streak"];
         $evidence = $_POST["evidence"];
+        $new_id = $row['uid'] + 1;
         
         $servername = "localhost";
         $username = "root";
@@ -119,8 +120,8 @@
             die("Connection Failed: " . $conn->connect_error);
         }
         
-        $sql = "INSERT INTO scores (name, streak, evidence)
-        VALUES ('$name', '$streak', '$evidence')";
+        $sql = "INSERT INTO scores (uid, name, streak, evidence)
+        VALUES ('$new_id', '$name', '$streak', '$evidence')";
         
         if ($conn->query($sql) === TRUE) {
             echo "New Record Created Successfully";
