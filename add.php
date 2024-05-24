@@ -119,7 +119,7 @@
             die("Connection Failed: " . $conn->connect_error);
         }
         
-        $sql = "INSERT INTO leaderboard (name, streak, evidence)
+        $sql = "INSERT INTO scores (name, streak, evidence)
         VALUES ('$name', '$streak', '$evidence')";
         
         if ($conn->query($sql) === TRUE) {
