@@ -94,11 +94,11 @@
     <h1>Add Streak</h1>
     <form action="add.php" method="post">
         <label for="name"><i class="fas fa-user"></i> Name</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" required>
         <label for="streak"><i class="fas fa-fire"></i> Streak (Days)</label>
-        <input type="text" id="streak" name="streak">
+        <input type="text" id="streak" name="streak" required>
         <label for="evidence"><i class="fas fa-file-image"></i> Evidence</label>
-        <input type="file" id="evidence" name="evidence" accept="image/*">
+        <input type="file" id="evidence" name="evidence" accept="image/*" required>
         <button type="submit" class="button"><i class="fas fa-paper-plane"></i> Submit</button>
         <a href="index.html" class="back-button"><i class="fas fa-home"></i> Back to Home</a>
     </form>
