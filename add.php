@@ -127,6 +127,10 @@
         VALUES ('$new_id', '$name', '$streak', '$evidence')";
 
         echo  "Inserted";
+        echo $new_id;
+        echo $name;
+        echo $streak;
+        echo $evidence;
         
         if ($conn->query($sql) === TRUE) {
             echo "New Record Created Successfully";
