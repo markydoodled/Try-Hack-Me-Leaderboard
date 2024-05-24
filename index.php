@@ -86,7 +86,7 @@
         <tr>
             <th><i class="fas fa-trophy"></i> Rank</th>
             <th><i class="fas fa-user"></i> Name</th>
-            <th><i class="fas fa-fire"></i> Streak</th>
+            <th><i class="fas fa-fire"></i> Streak (Days)</th>
         </tr>
         <?php
             $conn = mysqli_connect("localhost", "root", "", "leaderboard");
