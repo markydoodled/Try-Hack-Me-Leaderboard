@@ -3,7 +3,30 @@
     <title>Try Hack Me Leaderboard</title>
 </head>
 <body>
-    <h1>Home</h1>
-    <p>Welcome to the home page.</p>
-    <p><a href="add.html">Add Score</a></p>
+    <h1>Try Hack Me Leaderboard</h1>
+    <p><a href="add.html">Add Streak</a></p>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Streak</th>
+        </tr>
+        <!--<?php
+            $conn = mysqli_connect("localhost", "root", "", "leaderboard");
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            $sql = "SELECT * FROM scores ORDER BY score DESC";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                $rank = 1;
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr><td>" . $rank . "</td><td>" . $row["name"]. "</td><td>" . $row["streak"]. "</td></tr>";
+                    $rank++;
+                }
+            } else {
+                echo "0 results";
+            }
+            $conn->close();
+        ?>-->
 </html>
