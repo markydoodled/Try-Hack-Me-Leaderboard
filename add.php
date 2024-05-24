@@ -108,9 +108,7 @@
         $streak = $_POST["streak"];
         $evidence = $_POST["evidence"];
 
-        $result = $conn->query("SELECT MAX(uid) AS max_id FROM scores");
-        $row = $result->fetch_assoc();
-        $new_id = $row['max_ui'] + 1;
+        $new_id = $row['uid'] + 1;
         
         $servername = "localhost";
         $username = "root";
