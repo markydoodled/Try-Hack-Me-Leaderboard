@@ -92,7 +92,7 @@
 </head>
 <body>
     <h1>Add Streak</h1>
-    <form action="add.php" method="post">
+    <form action="add.php" method="post" enctype="multipart/form-data">
         <label for="name"><i class="fas fa-user"></i> Name</label>
         <input type="text" id="name" name="name" required>
         <label for="streak"><i class="fas fa-fire"></i> Streak (Days)</label>
@@ -117,6 +117,14 @@
         
         if ($conn->connect_error) {
             die("Connection Failed: " . $conn->connect_error);
+        }
+
+        if(isset($_FILES['evidence']) && $_FILES['evidence']['error'] == 0) {
+            $data = file_get_contents($_FILES['evidence']['tmp_name']);
+            $pdo = new PDO('mysql:host=localhost;dbname=leaderboard', 'root', '');
+            $stmt = $pdo->prepare("INSERT INTO scores (data) VALUES ('$evidence')");
+            $stmt->bindParam(1, $data);
+            $stmt->execute();
         }
 
         $result = $conn->query("SELECT * FROM scores WHERE name='$name'");
