@@ -131,6 +131,10 @@
         echo $name;
         echo $streak;
         echo $evidence;
+
+        $conn->close();
+        header("Location: index.php");
+        exit;
         
         if ($conn->query($sql) === TRUE) {
             echo "New Record Created Successfully";
