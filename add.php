@@ -96,7 +96,7 @@
         <label for="name"><i class="fas fa-user"></i> Name</label>
         <input type="text" id="name" name="name" required>
         <label for="streak"><i class="fas fa-fire"></i> Streak (Days)</label>
-        <input type="number" id="streak" name="streak" required>
+        <input type="number" id="streak" name="streak" min="1" required>
         <label for="evidence"><i class="fas fa-file-image"></i> Evidence</label>
         <input type="file" id="evidence" name="evidence" accept="image/*" required>
         <button type="submit" class="button"><i class="fas fa-paper-plane"></i> Submit</button>
