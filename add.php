@@ -119,12 +119,18 @@
             die("Connection Failed: " . $conn->connect_error);
         }
 
-        $result = $conn->query("SELECT MAX(uid) AS max_id FROM scores");
-        $row = $result->fetch_assoc();
-        $new_id = $row['max_id'] + 1;
-        
-        $sql = "INSERT INTO scores (uid, name, streak, evidence)
-        VALUES ('$new_id', '$name', '$streak', '$evidence')";
+        $result = $conn->query("SELECT * FROM scores WHERE name='$name'");
+
+        if ($result->num_rows > 0) {
+            $sql = "UPDATE scores SET streak='$streak', evidence='$evidence' WHERE name='$name'";
+        } else {
+            $result = $conn->query("SELECT MAX(uid) AS max_id FROM scores");
+            $row = $result->fetch_assoc();
+            $new_id = $row['max_id'] + 1;
+            
+            $sql = "INSERT INTO scores (uid, name, streak, evidence)
+            VALUES ('$new_id', '$name', '$streak', '$evidence')";
+        }
 
         echo  "Inserted";
         echo $new_id;
