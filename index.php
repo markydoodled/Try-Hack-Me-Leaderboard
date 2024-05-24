@@ -101,10 +101,10 @@
             <td>Jane Doe</td>
             <td>9</td>
         </tr>
-        <!--<?php
+        <?php
             $conn = mysqli_connect("localhost", "root", "", "leaderboard");
             if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
+                die("Connection Failed: " . $conn->connect_error);
             }
             $sql = "SELECT * FROM scores ORDER BY score DESC";
             $result = $conn->query($sql);
@@ -115,10 +115,10 @@
                     $rank++;
                 }
             } else {
-                echo "0 results";
+                echo "0 Results";
             }
             $conn->close();
-        ?>-->
+        ?>
     </table>
 </body>
 </html>
