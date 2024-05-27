@@ -119,18 +119,12 @@
             die("Connection Failed: " . $conn->connect_error);
         }
 
-        if(isset($_FILES['evidence']) && $_FILES['evidence']['error'] == 0) {
-            $data = file_get_contents($_FILES['evidence']['tmp_name']);
-            $pdo = new PDO('mysql:host=localhost;dbname=leaderboard', 'root', '');
-            $stmt = $pdo->prepare("INSERT INTO scores (data) VALUES ('$evidence')");
-            $stmt->bindParam(1, $data);
-            $stmt->execute();
-        }
+        $evidence = addslashes(file_get_contents($_FILES['evidence']['tmp_name']));
 
         $result = $conn->query("SELECT * FROM scores WHERE name='$name'");
 
         if ($result->num_rows > 0) {
-            $sql = "UPDATE scores SET streak='$streak', evidence='$evidence' WHERE name='$name'";
+            $sql = "UPDATE scores SET streak='$streak', evidence='$evidence', date=CURDATE() WHERE name='$name'";
         } else {
             $result = $conn->query("SELECT MAX(uid) AS max_id FROM scores");
             $row = $result->fetch_assoc();
@@ -139,12 +133,6 @@
             $sql = "INSERT INTO scores (uid, name, streak, evidence)
             VALUES ('$new_id', '$name', '$streak', '$evidence')";
         }
-
-        echo  "Inserted";
-        echo $new_id;
-        echo $name;
-        echo $streak;
-        echo $evidence;
         
         if ($conn->query($sql) === TRUE) {
             echo "New Record Created Successfully";

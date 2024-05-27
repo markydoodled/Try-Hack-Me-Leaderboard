@@ -93,7 +93,11 @@
             if ($conn->connect_error) {
                 die("Connection Failed: " . $conn->connect_error);
             }
-            $sql = "SELECT * FROM scores ORDER BY streak DESC";
+
+            $date_week_ago = date('Y-m-d', strtotime('-1 week'));
+
+            $sql = "SELECT * FROM scores WHERE date >= '$date_week_ago' ORDER BY streak DESC";
+
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 $rank = 1;
