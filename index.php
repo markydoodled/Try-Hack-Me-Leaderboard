@@ -87,6 +87,7 @@
             <th><i class="fas fa-trophy"></i> Rank</th>
             <th><i class="fas fa-user"></i> Name</th>
             <th><i class="fas fa-fire"></i> Streak (Days)</th>
+            <th><i class="fas fa-check"></i> Evidence</th>
         </tr>
         <?php
             $conn = mysqli_connect("localhost", "root", "", "leaderboard");
@@ -102,7 +103,7 @@
             if ($result->num_rows > 0) {
                 $rank = 1;
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td>" . $rank . "</td><td>" . $row["name"]. "</td><td>" . $row["streak"]. "</td></tr>";
+                    echo "<tr><td>" . $rank . "</td><td>" . $row["name"]. "</td><td>" . $row["streak"]. "</td><td><img src='data:image/jpeg;base64,".base64_encode( $row['evidence'] )."'/></td></tr>";
                     $rank++;
                 }
             } else {
