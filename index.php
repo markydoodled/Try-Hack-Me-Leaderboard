@@ -103,7 +103,7 @@
             if ($result->num_rows > 0) {
                 $rank = 1;
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td>" . $rank . "</td><td>" . $row["name"]. "</td><td>" . $row["streak"]. "</td><td><img src='data:image/jpeg;base64,".base64_encode( $row['evidence'] )."'/></td></tr>";
+                    echo "<tr><td>" . $rank . "</td><td>" . $row["name"]. "</td><td>" . $row["streak"]. "</td><td><img src='data:image/jpeg;base64,".base64_encode( $row['evidence'] )."' style='width:50px;'/></td></tr>";
                     $rank++;
                 }
             } else {
