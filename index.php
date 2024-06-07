@@ -20,12 +20,15 @@
             width: 100%;
             margin: 20px 0;
             border-collapse: collapse;
+            table-layout: fixed;
         }
 
         th, td {
             padding: 15px;
             text-align: left;
             border-bottom: 1px solid #ddd;
+            width: 25%;
+            word-wrap: break-word;
         }
 
         tr:hover {
@@ -103,7 +106,7 @@
             if ($result->num_rows > 0) {
                 $rank = 1;
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td>" . $rank . "</td><td>" . $row["name"]. "</td><td>" . $row["streak"]. "</td><td><img src='data:image/jpeg;base64,".base64_encode( $row['evidence'] )."' style='width:50px;'/></td></tr>";
+                    echo "<tr><td>" . $rank . "</td><td>" . $row["name"]. "</td><td>" . $row["streak"]. "</td><td style='padding:10px;'><img src='data:image/jpeg;base64,".base64_encode( $row['evidence'] )."' style='width:100%; display:block;'/></td></tr>";
                     $rank++;
                 }
             } else {

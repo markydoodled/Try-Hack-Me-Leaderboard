@@ -106,7 +106,8 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $name = $_POST["name"];
         $streak = $_POST["streak"];
-        $evidence = $_POST["evidence"];
+        $evidence = isset($_POST["evidence"]) ? $_POST["evidence"] : null;
+        //$evidence = $_POST["evidence"];
         
         $servername = "localhost";
         $username = "root";
@@ -119,7 +120,8 @@
             die("Connection Failed: " . $conn->connect_error);
         }
 
-        $evidence = addslashes(file_get_contents($_FILES['evidence']['tmp_name']));
+        $evidence = isset($_FILES['evidence']['tmp_name']) ? addslashes(file_get_contents($_FILES['evidence']['tmp_name'])) : null;
+        //$evidence = addslashes(file_get_contents($_FILES['evidence']['tmp_name']));
 
         $result = $conn->query("SELECT * FROM scores WHERE name='$name'");
 
